@@ -1,0 +1,530 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#1e1a0e" />
+    <meta
+      name="description"
+      content="Explora la conectividad, los pagos y el ecosistema de WalletConnect. Una plantilla corporativa en español para construir tu próxima integración."
+    />
+    <title>WalletConnect — El mundo, conectado.</title>
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    <link
+      rel="preload"
+      href="./assets/exact-regular.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="./assets/inter-latin.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="./app.js" defer></script>
+    <noscript
+      ><style>
+        @media (max-width: 700px) {
+          .site-header {
+            height: auto;
+            padding-block: 24px;
+            flex-wrap: wrap;
+          }
+          .main-navigation {
+            display: flex;
+            position: static;
+            width: 100%;
+            margin: 0;
+            background: transparent;
+            padding: 12px 0;
+            flex-direction: row;
+            flex-wrap: wrap;
+            gap: 4px 20px;
+          }
+          .main-navigation > a,
+          .main-navigation > a:nth-child(3) {
+            display: block;
+            font-size: 14px;
+          }
+          .main-navigation .mobile-dashboard {
+            padding: 8px 18px;
+          }
+          .menu-toggle {
+            display: none;
+          }
+        }
+      </style></noscript
+    >
+  </head>
+  <body>
+    <a class="skip-link" href="#contenido">Saltar al contenido</a>
+    <div class="dark-opening">
+      <header class="site-header container">
+        <a class="brand" href="#" aria-label="WalletConnect, inicio"
+          ><img
+            src="./assets/logo.svg"
+            alt="WalletConnect"
+            width="249"
+            height="27"
+        /></a>
+        <button
+          class="menu-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="main-navigation"
+          aria-label="Abrir menú"
+        >
+          <span></span><span></span>
+        </button>
+        <nav
+          id="main-navigation"
+          class="main-navigation"
+          aria-label="Navegación principal"
+        >
+          <a href="#productos">Productos</a>
+          <a href="#soluciones">Soluciones</a>
+          <a href="#ecosistema">Ecosistema</a>
+          <a href="#desarrolladores">Desarrolladores</a>
+          <a
+            class="mobile-dashboard"
+            href="https://dashboard.walletconnect.com/"
+            >Dashboard</a
+          >
+        </nav>
+        <a
+          class="button button-small header-action"
+          href="https://dashboard.walletconnect.com/"
+          >Dashboard</a
+        >
+      </header>
+    </div>
+    <main id="contenido">
+      <section class="hero dark-opening" aria-labelledby="hero-title">
+        <div class="hero-art" aria-hidden="true">
+          <img
+            src="./assets/hero.png"
+            width="1920"
+            height="1650"
+            alt=""
+            fetchpriority="high"
+          />
+        </div>
+        <div class="hero-copy container">
+          <h1 id="hero-title">El mundo,<br />conectado.</h1>
+          <p>
+            La infraestructura que conecta wallets, aplicaciones y empresas con
+            la economía de los activos digitales.
+          </p>
+          <div class="hero-actions">
+            <a class="button" href="https://docs.walletconnect.com/"
+              >Empezar a construir</a
+            ><a class="text-link light-link" href="#productos"
+              >Explorar productos</a
+            >
+          </div>
+        </div>
+        <div class="hero-foot container">
+          <span>Una integración. Un mundo de conexiones.</span
+          ><a href="#ecosistema"
+            >Descubre la red <span class="scroll-mark" aria-hidden="true"></span
+          ></a>
+        </div>
+      </section>
+      <section
+        class="ecosystem section container"
+        id="ecosistema"
+        aria-labelledby="ecosystem-title"
+      >
+        <div class="section-heading reveal">
+          <h2 id="ecosystem-title">Una red.<br />Más posibilidades.</h2>
+          <p>
+            Desde una aplicación hasta una institución financiera. Una
+            infraestructura compartida para hacer que los activos digitales
+            lleguen más lejos.
+          </p>
+        </div>
+        <div
+          class="network-words"
+          role="group"
+          aria-label="Un ecosistema para wallets, aplicaciones y empresas"
+        >
+          <span class="reveal">Wallets</span
+          ><svg
+            class="connection-mark reveal"
+            viewBox="0 0 64 44"
+            aria-hidden="true"
+          >
+            <path d="M4 23L17 36L32 21L47 36L60 23M13 13Q32-4 51 13" /></svg
+          ><span class="reveal">Aplicaciones</span
+          ><svg
+            class="connection-mark reveal"
+            viewBox="0 0 64 44"
+            aria-hidden="true"
+          >
+            <path d="M4 23L17 36L32 21L47 36L60 23M13 13Q32-4 51 13" /></svg
+          ><span class="reveal">Empresas</span>
+        </div>
+      </section>
+
+      <section
+        class="products section"
+        id="productos"
+        aria-labelledby="products-title"
+      >
+        <div class="container">
+          <div class="section-heading reveal">
+            <h2 id="products-title">Una conexión.<br />Tu siguiente paso.</h2>
+            <p>
+              Descubre cómo WalletConnect puede formar parte de tu producto,
+              desde la primera conexión hasta el movimiento de activos.
+            </p>
+          </div>
+          <div
+            class="product-tabs"
+            role="tablist"
+            aria-label="Productos de WalletConnect"
+            hidden
+          >
+            <button
+              id="tab-connectivity"
+              type="button"
+              role="tab"
+              aria-selected="true"
+              aria-controls="panel-connectivity"
+              tabindex="0"
+            >
+              Conectividad
+            </button>
+            <button
+              id="tab-payments"
+              type="button"
+              role="tab"
+              aria-selected="false"
+              aria-controls="panel-payments"
+              tabindex="-1"
+            >
+              Pagos
+            </button>
+            <button
+              id="tab-compliance"
+              type="button"
+              role="tab"
+              aria-selected="false"
+              aria-controls="panel-compliance"
+              tabindex="-1"
+            >
+              Compliance
+            </button>
+          </div>
+          <div class="product-panel" id="panel-connectivity">
+            <div class="product-copy">
+              <h3>Acerca tu app<br />a cada wallet.</h3>
+              <p>
+                Conecta wallets con aplicaciones y negocios a través de una
+                única integración. Una experiencia familiar para tus usuarios,
+                allí donde estén.
+              </p>
+              <ul class="check-list">
+                <li>Conexiones entre wallets y aplicaciones</li>
+                <li>Un ecosistema de múltiples cadenas</li>
+                <li>Una experiencia sin custodia</li>
+              </ul>
+              <a
+                class="button button-dark"
+                href="https://walletconnect.com/connectivity"
+                >Explorar conectividad</a
+              >
+            </div>
+            <div class="product-art">
+              <img
+                src="./assets/connectivity.png"
+                width="898"
+                height="950"
+                alt="El símbolo de WalletConnect conectado con wallets de su ecosistema"
+                loading="lazy"
+              />
+            </div>
+          </div>
+          <div class="product-panel" id="panel-payments">
+            <div class="product-copy">
+              <h3>Abre nuevas<br />formas de pagar.</h3>
+              <p>
+                Explora una infraestructura para aceptar, depositar y liquidar
+                pagos con activos digitales a través de la red de wallets.
+              </p>
+              <ul class="check-list">
+                <li>Pagos desde wallets conectadas</li>
+                <li>Flujos con activos digitales</li>
+                <li>Opciones para comercios y plataformas</li>
+              </ul>
+              <a
+                class="button button-dark"
+                href="https://walletconnect.com/payments"
+                >Explorar pagos</a
+              >
+            </div>
+            <div class="product-art">
+              <img
+                src="./assets/payments.png"
+                width="898"
+                height="950"
+                alt="Una mano sostiene un móvil con una confirmación de pago de WalletConnect Pay"
+                loading="lazy"
+              />
+            </div>
+          </div>
+          <div class="product-panel" id="panel-compliance">
+            <div class="product-copy">
+              <h3>Confianza en<br />cada conexión.</h3>
+              <p>
+                Conoce las herramientas de compliance que puedes incorporar a
+                tus flujos de activos digitales según las necesidades de tu
+                negocio.
+              </p>
+              <ul class="check-list">
+                <li>Verificación del control de wallets</li>
+                <li>Comprobaciones antes de autorizar</li>
+                <li>Herramientas para tus flujos de cumplimiento</li>
+              </ul>
+              <a
+                class="button button-dark"
+                href="https://walletconnect.com/compliance"
+                >Explorar compliance</a
+              >
+            </div>
+            <div class="product-art">
+              <img
+                src="./assets/compliance.png"
+                width="898"
+                height="950"
+                alt="Ilustración de verificación de wallet y captura de información Travel Rule"
+                loading="lazy"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="solutions section container"
+        id="soluciones"
+        aria-labelledby="solutions-title"
+      >
+        <div class="section-heading reveal">
+          <h2 id="solutions-title">Diseñada para<br />tu mundo.</h2>
+          <p>
+            La misma red. Distintas formas de construir. Encuentra el punto de
+            partida que encaja con tu negocio.
+          </p>
+        </div>
+        <div class="solution-grid">
+          <a
+            class="solution solution-wallet reveal"
+            href="https://walletconnect.com/connectivity"
+            ><div class="solution-visual wallet-visual" aria-hidden="true">
+              <span class="wallet-outline"
+                ><svg viewBox="0 0 64 44">
+                  <path
+                    d="M4 23L17 36L32 21L47 36L60 23M13 13Q32-4 51 13"
+                  /></svg
+              ></span>
+            </div>
+            <div>
+              <h3>Wallets y apps</h3>
+              <p>
+                Haz que la siguiente conexión<br />sea el inicio de algo más.
+              </p>
+              <span class="solution-link">Descubrir conectividad</span>
+            </div></a
+          >
+          <a
+            class="solution solution-fintech reveal"
+            href="https://walletconnect.com/solutions/fintechs-and-neobanks"
+            ><div class="solution-visual solution-photo">
+              <img
+                src="./assets/fintechs.png"
+                width="1000"
+                height="892"
+                alt="Ejemplo ilustrativo de una aplicación fintech con saldo y movimientos"
+                loading="lazy"
+              />
+            </div>
+            <div>
+              <h3>Fintechs</h3>
+              <p>
+                Conecta tu plataforma con<br />nuevas formas de mover valor.
+              </p>
+              <span class="solution-link">Explorar la solución</span>
+            </div></a
+          >
+          <a
+            class="solution solution-institution reveal"
+            href="https://walletconnect.com/solutions/financial-institutions"
+            ><div class="solution-visual solution-photo">
+              <img
+                src="./assets/institutions.png"
+                width="1000"
+                height="892"
+                alt="Ejemplo ilustrativo de financiación de una cuenta institucional con stablecoins"
+                loading="lazy"
+              />
+            </div>
+            <div>
+              <h3>Instituciones</h3>
+              <p>Acerca tu infraestructura<br />a los mercados onchain.</p>
+              <span class="solution-link">Conocer las posibilidades</span>
+            </div></a
+          >
+        </div>
+      </section>
+
+      <section
+        class="developers section"
+        id="desarrolladores"
+        aria-labelledby="developers-title"
+      >
+        <div class="container developer-layout">
+          <div class="developer-copy reveal">
+            <h2 id="developers-title">Tu próxima<br />integración.</h2>
+            <p>
+              Todo empieza con una conexión. Encuentra las guías, los SDK y los
+              recursos para llevar tu idea a producción.
+            </p>
+            <a class="button" href="https://docs.walletconnect.com/"
+              >Abrir documentación</a
+            ><a class="text-link" href="https://dashboard.walletconnect.com/"
+              >Ir al dashboard</a
+            >
+          </div>
+          <div class="developer-resources" aria-label="Recursos de desarrollo">
+            <a class="resource reveal" href="https://docs.walletconnect.com/"
+              ><span class="resource-symbol" aria-hidden="true">{ }</span>
+              <div>
+                <h3>Documentación</h3>
+                <p>Guías de integración y referencias técnicas.</p>
+              </div>
+              <span class="resource-symbol" aria-hidden="true">+</span></a
+            ><a
+              class="resource reveal"
+              href="https://dashboard.walletconnect.com/"
+              ><span class="resource-symbol" aria-hidden="true">⌘</span>
+              <div>
+                <h3>Dashboard</h3>
+                <p>El punto de partida para gestionar tu proyecto.</p>
+              </div>
+              <span class="resource-symbol" aria-hidden="true">+</span></a
+            ><a class="resource reveal" href="https://status.walletconnect.com/"
+              ><span class="resource-symbol" aria-hidden="true">∿</span>
+              <div>
+                <h3>Estado de la red</h3>
+                <p>Consulta el estado publicado de los servicios.</p>
+              </div>
+              <span class="resource-symbol" aria-hidden="true">+</span></a
+            >
+          </div>
+        </div>
+      </section>
+
+      <section class="faq section container" aria-labelledby="faq-title">
+        <div class="faq-heading reveal">
+          <h2 id="faq-title">Antes de<br />conectar.</h2>
+          <p>Unas respuestas para empezar con claridad.</p>
+        </div>
+        <div class="faq-list">
+          <details class="reveal" name="faq">
+            <summary>¿Qué es WalletConnect?</summary>
+            <p>
+              Es una red de conectividad para wallets, aplicaciones y empresas
+              que operan con activos digitales. Su ecosistema incluye
+              conectividad, pagos y herramientas de compliance. Puedes conocer
+              sus productos en
+              <a href="https://walletconnect.com/">la web de WalletConnect</a>.
+            </p>
+          </details>
+          <details class="reveal" name="faq">
+            <summary>¿Por dónde empiezo a integrar?</summary>
+            <p>
+              Consulta la
+              <a href="https://docs.walletconnect.com/">documentación oficial</a
+              >, elige el producto que se ajusta a tu aplicación y sigue su guía
+              de integración. El dashboard es el punto de partida para
+              configurar tu proyecto.
+            </p>
+          </details>
+          <details class="reveal" name="faq">
+            <summary>¿Quién mantiene la custodia?</summary>
+            <p>
+              La red de WalletConnect es no custodial: el usuario conserva el
+              control de su wallet y autoriza las solicitudes desde ella.
+              Consulta la documentación de cada producto para conocer su
+              funcionamiento concreto.
+            </p>
+          </details>
+          <details class="reveal" name="faq">
+            <summary>¿Qué wallets y redes puedo usar?</summary>
+            <p>
+              La compatibilidad depende del producto, el SDK y la configuración
+              de tu integración.
+              <a href="https://docs.walletconnect.com/">Consulta las redes y wallets compatibles en la documentación oficial.</a> También puedes
+              <a href="https://walletguide.walletconnect.com/"
+                >explora las wallets disponibles en WalletGuide</a
+              >, donde encontrarás información de cada wallet.
+            </p>
+          </details>
+        </div>
+      </section>
+
+      <section class="closing">
+        <div class="container closing-inner reveal">
+          <h2>Conecta<br />lo que viene.</h2>
+          <div>
+            <p>Tu próxima idea.<br />Un ecosistema de posibilidades.</p>
+            <a
+              class="button button-white"
+              href="https://docs.walletconnect.com/"
+              >Empieza con WalletConnect</a
+            >
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-top">
+          <a class="brand" href="#" aria-label="Volver al inicio"
+            ><img
+              src="./assets/logo.svg"
+              alt="WalletConnect"
+              width="249"
+              height="27"
+              loading="lazy"
+          /></a>
+          <p>Conectando la economía<br />de los activos digitales.</p>
+          <nav aria-label="Productos">
+            <a href="https://walletconnect.com/connectivity">Conectividad</a
+            ><a href="https://walletconnect.com/payments">Pagos</a
+            ><a href="https://walletconnect.com/compliance">Compliance</a>
+          </nav>
+          <nav aria-label="Recursos">
+            <a href="https://docs.walletconnect.com/">Documentación</a
+            ><a href="https://walletconnect.com/">Web corporativa</a
+            ><a href="https://brand.walletconnect.com/">Recursos de marca</a>
+          </nav>
+        </div>
+        <div class="footer-bottom">
+          <span>WalletConnect · Plantilla corporativa</span>
+          <div>
+            <a href="https://walletconnect.com/privacy">Privacidad</a
+            ><a href="https://walletconnect.com/terms">Términos</a
+            ><span lang="es">Español</span>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
