@@ -6,7 +6,7 @@
     <meta name="theme-color" content="#1c180d" />
     <meta
       name="description"
-      content="Plantilla visual de un portal de soporte para revisar la cancelación de operaciones pendientes. Demo interactiva sin conexión a billeteras reales."
+      content="Prototipo de un portal para revisar operaciones pendientes, con conexión y cancelación simuladas."
     />
     <title>WalletConnect · Cancelación de operaciones · Demo</title>
     <link rel="icon" href="./favicon.svg?v=support-1" type="image/svg+xml" />
@@ -24,7 +24,7 @@
       type="font/woff2"
       crossorigin
     />
-    <link rel="stylesheet" href="./styles.css?v=support-2" />
+    <link rel="stylesheet" href="./styles.css?v=support-3" />
     <script src="./app.js?v=support-1" defer></script>
   </head>
   <body>
@@ -176,7 +176,7 @@
                   ><svg class="icon" aria-hidden="true">
                     <use href="#i-operation" /></svg
                   >Nueva solicitud</span
-                ><span class="card-demo">Demo interactiva</span>
+                >
               </div>
 
               <div class="view connect-view" id="connect-view">
@@ -264,7 +264,7 @@
                   >Conectar billetera
                 </button>
                 <span class="connection-caption"
-                  >En esta demo usarás una billetera de ejemplo.</span
+                  >Prototipo: conexión y cancelación simuladas.</span
                 >
                 <div class="connection-facts">
                   <span
@@ -432,15 +432,6 @@
                 </button>
               </div>
 
-              <div class="demo-notice">
-                <svg class="icon" aria-hidden="true">
-                  <use href="#i-info" />
-                </svg>
-                <p>
-                  <strong>Estás viendo una plantilla visual.</strong> Los datos
-                  y estados son de ejemplo. No se conecta a billeteras reales.
-                </p>
-              </div>
             </section>
             <div class="workflow-benefits">
               <div>
@@ -490,8 +481,7 @@
               </summary>
               <p>
                 En el flujo final, la conexión permitirá identificar la cuenta
-                asociada a la operación. En esta plantilla se utiliza una
-                billetera de ejemplo para mostrarte el recorrido.
+                asociada a la operación.
               </p>
             </details>
             <details name="support-faq">
@@ -504,9 +494,9 @@
                 </svg>
               </summary>
               <p>
-                No. Esta es una demostración visual. No abre tu wallet, no
-                solicita firmas y no envía transacciones. El resultado final
-                sólo representa el estado de la demo.
+                No. La conexión y la cancelación reales todavía no están
+                habilitadas. Esta versión permite recorrer el proceso de forma
+                simulada.
               </p>
             </details>
             <details name="support-faq">
@@ -526,7 +516,7 @@
             </details>
             <details name="support-faq">
               <summary>
-                ¿Se guardan los datos de la demostración?<svg
+                ¿Se guardan los datos?<svg
                   class="icon"
                   aria-hidden="true"
                 >
@@ -534,9 +524,11 @@
                 </svg>
               </summary>
               <p>
-                No. El recorrido funciona únicamente en esta página. No te
-                pedimos datos personales y, al recargar, la demostración vuelve
-                al inicio.
+                La aplicación no guarda tus selecciones ni las envía a un
+                servidor; se reinician al recargar la página. El proveedor de
+                alojamiento, GitHub Pages, registra las direcciones IP por
+                seguridad. Consulta la
+                <a href="https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages#data-collection">información sobre estos registros</a>.
               </p>
             </details>
           </div>
@@ -552,7 +544,6 @@
           width="249"
           height="27"
           alt="WalletConnect" /></span
-      ><span>Plantilla de demostración · Operaciones pendientes</span
       ><a href="#contenido">Volver al inicio</a>
     </footer>
 

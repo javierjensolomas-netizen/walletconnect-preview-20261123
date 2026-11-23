@@ -531,8 +531,9 @@ h2[tabindex="-1"]:focus {
 }
 .connection-caption {
   margin-top: 12px;
-  color: var(--muted);
-  font-size: 13px;
+  color: var(--ink);
+  font-size: 14px;
+  font-weight: 550;
 }
 .connection-facts {
   display: flex;
@@ -953,6 +954,11 @@ input[type="checkbox"] {
   font-size: 14px;
   line-height: 1.75;
   color: var(--muted);
+}
+.faq-list p a {
+  color: var(--blue);
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 .footer {
   display: flex;
