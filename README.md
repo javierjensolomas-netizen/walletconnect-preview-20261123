@@ -1,3 +1,7 @@
-# WalletConnect corporate template preview
+# WalletConnect support portal — visual demo
 
-Static publication of the corporate template. Brand assets originate from WalletConnect; sources are listed in assets/assets-sources.json.
+Public preview of a pending-operation cancellation template using WalletConnect visual identity.
+
+This is a visual demonstration only. It does not connect wallets, request signatures, send transactions, or cancel real operations. DEMO-001 and DEMO-002 are fictional examples.
+
+Brand assets: sources in assets/assets-sources.json.

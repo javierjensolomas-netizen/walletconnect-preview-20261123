@@ -3,10 +3,6 @@
   "retrieved": "2026-11-23",
   "assets": [
     {
-      "file": "hero.png",
-      "url": "https://cdn.sanity.io/images/1t8iva7t/production/c1430935bd4aa1e0f029d1076725763877b57afa-1920x1650.png"
-    },
-    {
       "url": "https://walletconnect.com/",
       "file": "logo.svg",
       "note": "First inline SVG from the public homepage; original paths preserved."
@@ -18,30 +14,6 @@
     {
       "file": "inter-latin.woff2",
       "url": "https://walletconnect.com/_next/static/media/32b04a225cda6443-s.p.woff2"
-    },
-    {
-      "file": "connectivity.png",
-      "url": "https://cdn.sanity.io/images/1t8iva7t/production/f5036731fba65e4b654fba739b975e07bd7ff659-898x950.png"
-    },
-    {
-      "file": "payments.png",
-      "url": "https://cdn.sanity.io/images/1t8iva7t/production/af477da0ec892720336582834b7f8b7d13e24466-898x950.png"
-    },
-    {
-      "file": "compliance.png",
-      "url": "https://cdn.sanity.io/images/1t8iva7t/production/a653f8766d0702e0b8e761ffec3ce11796f048f6-898x950.png"
-    },
-    {
-      "file": "institutions.png",
-      "url": "https://cdn.sanity.io/images/1t8iva7t/production/127497d2d81f108f3740973229843d54803c1b9f-2480x2212.png?w=1000&fm=png",
-      "page": "https://walletconnect.com/solutions/financial-institutions",
-      "description": "Official illustrative UI for funding a stablecoin account; contains fictional sample bank and balances."
-    },
-    {
-      "file": "fintechs.png",
-      "url": "https://cdn.sanity.io/images/1t8iva7t/production/dbc8652b32223808607cbf56ab0419001554c78a-2480x2212.png?w=1000&fm=png",
-      "page": "https://walletconnect.com/solutions/fintechs-and-neobanks",
-      "description": "Official illustrative mobile wallet UI, with fictional sample brand and balances."
     }
   ]
 }

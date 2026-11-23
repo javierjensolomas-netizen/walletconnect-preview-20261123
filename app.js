@@ -1,88 +1,132 @@
-const menuButton = document.querySelector(".menu-toggle");
-const navigation = document.querySelector("#main-navigation");
+// Visual demonstration only. No wallet providers, RPC requests, signatures or transactions.
+const dialog = document.querySelector("#wallet-dialog");
+const connectButton = document.querySelector("#connect-wallet");
+const operationInputs = [
+  ...document.querySelectorAll('input[name="operation"]'),
+];
+const confirmation = document.querySelector("#confirm-demo");
+const reviewButton = document.querySelector("#review-operation");
+const simulateButton = document.querySelector("#simulate-cancel");
+const status = document.querySelector("#flow-status");
+const views = [...document.querySelectorAll(".view")];
+const steps = [...document.querySelectorAll(".step")];
+const demoOperations = {
+  transfer: { name: "Envío de activos", id: "DEMO-001", amount: "0,05 ETH" },
+  contract: {
+    name: "Interacción con contrato",
+    id: "DEMO-002",
+    amount: "0 ETH",
+  },
+};
+let activeView = "connect";
+let selectedOperation = null;
 
-function closeMenu({ restoreFocus = false } = {}) {
-  menuButton.setAttribute("aria-expanded", "false");
-  menuButton.setAttribute("aria-label", "Abrir menú");
-  navigation.classList.remove("is-open");
-  if (restoreFocus) menuButton.focus();
+function showView(name, step, message) {
+  activeView = name;
+  views.forEach((view) => {
+    view.hidden = view.id !== `${name}-view`;
+  });
+  steps.forEach((element, index) => {
+    const position = index + 1;
+    const done = position < step || name === "success";
+    element.classList.toggle("active", position === step && !done);
+    element.classList.toggle("done", done);
+    if (position === step && !done)
+      element.setAttribute("aria-current", "step");
+    else element.removeAttribute("aria-current");
+    const number = element.querySelector(".step-number");
+    if (done)
+      number.innerHTML =
+        '<svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span class="sr-only">Completado</span>';
+    else number.textContent = position;
+  });
+  status.textContent = message;
+  document.querySelector(`#${name}-title`).focus();
 }
 
-menuButton.addEventListener("click", () => {
-  const open = menuButton.getAttribute("aria-expanded") !== "true";
-  menuButton.setAttribute("aria-expanded", String(open));
-  menuButton.setAttribute("aria-label", open ? "Cerrar menú" : "Abrir menú");
-  navigation.classList.toggle("is-open", open);
-});
-navigation.addEventListener("click", (event) => {
-  if (event.target.closest("a")) closeMenu();
-});
-document.addEventListener("keydown", (event) => {
-  if (
-    event.key === "Escape" &&
-    menuButton.getAttribute("aria-expanded") === "true"
-  )
-    closeMenu({ restoreFocus: true });
-});
-document.addEventListener("click", (event) => {
-  if (!event.target.closest(".site-header")) closeMenu();
-});
-window
-  .matchMedia("(min-width: 701px)")
-  .addEventListener("change", () => closeMenu());
-
-const tablist = document.querySelector(".product-tabs");
-const tabs = [...tablist.querySelectorAll('[role="tab"]')];
-const panels = [...document.querySelectorAll(".product-panel")];
-
-function selectProduct(index, focus = false) {
-  tabs.forEach((tab, position) => {
-    const selected = position === index;
-    tab.setAttribute("aria-selected", String(selected));
-    tab.tabIndex = selected ? 0 : -1;
-    panels[position].hidden = !selected;
-    panels[position].classList.toggle("tab-enter", selected);
+function resetDemo() {
+  selectedOperation = null;
+  operationInputs.forEach((input) => {
+    input.checked = false;
   });
-  if (focus) tabs[index].focus();
-}
-
-tabs.forEach((tab, index) => {
-  panels[index].setAttribute("role", "tabpanel");
-  panels[index].setAttribute("aria-labelledby", tab.id);
-  panels[index].tabIndex = 0;
-  tab.addEventListener("click", () => selectProduct(index));
-  tab.addEventListener("keydown", (event) => {
-    let next;
-    if (event.key === "ArrowRight") next = (index + 1) % tabs.length;
-    if (event.key === "ArrowLeft")
-      next = (index - 1 + tabs.length) % tabs.length;
-    if (event.key === "Home") next = 0;
-    if (event.key === "End") next = tabs.length - 1;
-    if (next !== undefined) {
-      event.preventDefault();
-      selectProduct(next, true);
-    }
-  });
-});
-selectProduct(0);
-tablist.hidden = false;
-
-if (
-  "IntersectionObserver" in window &&
-  !window.matchMedia("(prefers-reduced-motion: reduce)").matches
-) {
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("is-visible");
-          observer.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.08 },
+  confirmation.checked = false;
+  reviewButton.disabled = true;
+  simulateButton.disabled = true;
+  if (dialog.open) dialog.close();
+  showView(
+    "connect",
+    1,
+    "Demostración reiniciada. Puedes elegir una billetera de ejemplo.",
   );
-  document
-    .querySelectorAll(".reveal")
-    .forEach((element) => observer.observe(element));
+  connectButton.focus();
 }
+
+connectButton.addEventListener("click", () => dialog.showModal());
+document
+  .querySelector("#close-dialog")
+  .addEventListener("click", () => dialog.close());
+dialog.addEventListener("click", (event) => {
+  if (event.target !== dialog) return;
+  const bounds = dialog.getBoundingClientRect();
+  if (
+    event.clientX < bounds.left ||
+    event.clientX > bounds.right ||
+    event.clientY < bounds.top ||
+    event.clientY > bounds.bottom
+  )
+    dialog.close();
+});
+dialog.querySelectorAll("[data-demo-wallet]").forEach((button) => {
+  button.addEventListener("click", () => {
+    document.querySelector("#demo-wallet-type").textContent =
+      `${button.dataset.demoWallet} · simulación`;
+    dialog.close();
+    showView(
+      "operation",
+      2,
+      "Billetera de ejemplo seleccionada. Elige una operación ficticia.",
+    );
+  });
+});
+operationInputs.forEach((input) => {
+  input.addEventListener("change", () => {
+    selectedOperation = demoOperations[input.value] || null;
+    reviewButton.disabled = !selectedOperation;
+  });
+});
+reviewButton.addEventListener("click", () => {
+  if (activeView !== "operation" || !selectedOperation) return;
+  document.querySelector("#review-name").textContent = selectedOperation.name;
+  document.querySelector("#review-id").textContent = selectedOperation.id;
+  document.querySelector("#review-amount").textContent =
+    selectedOperation.amount;
+  confirmation.checked = false;
+  simulateButton.disabled = true;
+  showView(
+    "review",
+    3,
+    `Revisa los datos de ejemplo de ${selectedOperation.id}.`,
+  );
+});
+confirmation.addEventListener("change", () => {
+  simulateButton.disabled = !confirmation.checked;
+});
+document.querySelector("#back-operations").addEventListener("click", () => {
+  confirmation.checked = false;
+  simulateButton.disabled = true;
+  showView("operation", 2, "Puedes seleccionar otra operación de ejemplo.");
+});
+simulateButton.addEventListener("click", () => {
+  if (activeView !== "review" || !selectedOperation || !confirmation.checked)
+    return;
+  document.querySelector("#completed-operation").textContent =
+    `${selectedOperation.id} · ${selectedOperation.name}`;
+  showView(
+    "success",
+    3,
+    "Recorrido de demostración completado. No se ha realizado ninguna operación real.",
+  );
+});
+document
+  .querySelectorAll(".reset-demo")
+  .forEach((button) => button.addEventListener("click", resetDemo));
